@@ -30,6 +30,12 @@ make
 make run
 ```
 
+## Contributing
+
+To contribute to this project, please use the Gitea repository of this project. This project gets auto-pushed from Gitea to GitHub.
+
+Further instructions will be provided on a later date, for now just make sure you create an issue and/or fork and make a pull request.
+
 ## Author
 
 👤 **Emily**
