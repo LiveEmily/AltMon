@@ -8,6 +8,7 @@ void loop(monster mon1, monster mon2) {
     moves moveChosen;
     moves moveChosen2;
     
+    intro();
 
     while(true) {
         moveChosen = chooseMove(mon1);

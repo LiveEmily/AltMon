@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <functions.h>
 
 #ifdef _WIN32
 #define CLEAR "CLS"
 #include <conio.h>
+#include <Windows.h>
 #else
 #define CLEAR "clear"
 #include <termios.h>
@@ -46,6 +48,49 @@ void clearScreen() {
     system(CLEAR);
 }
 
+void intro() {
+    system(CLEAR);
+    printf("Welcome, to the world of AltMon!");
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*100, 150);
+    }
+
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*200, 150);
+    }
+
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*100, 150);
+    }
+
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*200, 150);
+    }
+
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*100, 150);
+    }
+
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*150, 150);
+    }
+
+    for(int i = 0; i < 5; ++i) {
+        Beep(i*150, 150);
+    }
+
+    for(int i = 0; i < 3; ++i) {
+        Beep(i*350, 150);
+    }
+
+    for(int i = 0; i < 2; ++i) {
+        Beep(i*450, 150);
+    }
+
+    Beep(800, 200);
+    system(CLEAR);
+}
+
 float checkType(monster *mon, moves moveChosen) {
     float multiplier = 1;
 
@@ -59,21 +104,21 @@ float checkType(monster *mon, moves moveChosen) {
 }
 
 moves chooseMove(monster mon) {
-    int move;
+    char move[10];
     moves moveChosen;
 
     printf("Please choose a move for %s | HP: %i\n", mon.name, mon.hp);
 
     for(int i = 0; i < 3; ++i) {
         if(mon.moves[i].exists) {
-            printf("%i | Name: %s | Damage: %i | Type: %s\n", mon.moves[i].index, mon.moves[i].name, mon.moves[i].dmg, mon.moves[i].type.name);
+            printf("Name: %s | Damage: %i | Type: %s\n", mon.moves[i].name, mon.moves[i].dmg, mon.moves[i].type.name);
         }
     }
 
-    scanf("%i", &move);
+    scanf("%9s", move);
 
     for(int i = 0; i < 4; ++i) {
-        if(mon.moves[i].index == move) {
+        if(strcmp(mon.moves[i].name, move) == 0) {
             moveChosen = mon.moves[i];
             break;
         }
@@ -101,6 +146,16 @@ void battle(monster *mon1, monster *mon2, moves moveChosen, moves moveChosen2) {
 
         if(mon2->hp <= 0) {
             printf("%s has fainted!", mon2->name);
+            Beep(300, 200);
+            Beep(400, 200);
+            Beep(500, 100);
+            Beep(600, 200);
+            Beep(700, 100);
+            Beep(600, 200);
+            Beep(550, 300);
+            Beep(500, 200);
+            Beep(600, 250);
+            Beep(200, 200);
             return;
         }
 
@@ -120,6 +175,16 @@ void battle(monster *mon1, monster *mon2, moves moveChosen, moves moveChosen2) {
 
         if(mon1->hp <= 0) {
             printf("%s has fainted!", mon1->name);
+            Beep(300, 200);
+            Beep(400, 200);
+            Beep(500, 100);
+            Beep(600, 200);
+            Beep(700, 100);
+            Beep(600, 200);
+            Beep(550, 300);
+            Beep(500, 200);
+            Beep(600, 250);
+            Beep(200, 200);
             return;
         }
 

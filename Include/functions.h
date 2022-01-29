@@ -5,6 +5,8 @@
 
 void clearScreen();
 
+void intro();
+
 float checkType(monster *, moves);
 
 moves chooseMove(monster);
