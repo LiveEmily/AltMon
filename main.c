@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <functions.h>
+#include <engine.h>
 
 void loop(monster mon1, monster mon2) {
     moves moveChosen;
@@ -31,16 +32,25 @@ int main() {
 
     // Variables for debugging purposes
     types noType = {"no type", 99, 99, 99};
-    moves noMove = {"no move", 0, false, 99, noType};
+    moves noMove = {"no move", 0, false, 99, noType, false};
+    effects noEffect = {"no effect", true, 99};
+    abilities noAbility = {"no ability", false, noEffect, false };
 
-    moves growl = { "growl", 0, true, 0, normal };
-    moves attack = { "attack", 5, true, 1, normal };
-    moves burn = { "burn", 8, true, 2, fire };
+    effects burn = { "burn", false, 0 };
+    //effects paralysis = { "paralysis", false, 1 };
+    //effects poison = { "poison", false, 2 };
+
+    moves growl = { "growl", 0, true, 0, normal, false };
+    moves attack = { "attack", 5, true, 1, normal, true };
+    moves ember = { "ember", 8, true, 2, fire, false };
     //moves spray = { "spray", 8, true, 3, water };
-    moves cut = { "cut", 8, true, 4, grass };
+    moves cut = { "cut", 8, true, 4, grass, true };
 
-    monster mon1 = { "Archie", 20, 5, 8, 12, {growl, attack, burn, noMove}, {fire, noType}, 0 };
-    monster mon2 = { "Denchi", 24, 6, 6, 10, {growl, attack, cut, noMove}, {grass, noType}, 1 };
+    //abilities toxic = { "toxic", false, poison, false };
+    abilities blaze = { "blaze", false, burn, false };
+
+    monster mon1 = { "Archie", 20, 5, 8, 12, {growl, attack, ember, noMove}, {fire, noType}, blaze, noEffect, 0 };
+    monster mon2 = { "Denchi", 24, 6, 6, 10, {growl, attack, cut, noMove}, {grass, noType}, noAbility, noEffect, 1 };
     //monster mon3 = { "Enty", 22, 5, 12, 8, growl, attack, spray, water, 2 };
 
     // Main game loop

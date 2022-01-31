@@ -10,6 +10,7 @@ typedef struct {
     bool exists;
     int index;
     types type;
+    bool physical;
 } moves;
 
 #endif

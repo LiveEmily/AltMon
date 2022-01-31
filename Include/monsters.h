@@ -2,7 +2,7 @@
 #define MONSTERS_H
 
 #include <moves.h>
-//#include <abilities.h>
+#include <abilities.h>
 
 typedef struct {
     char name[15];
@@ -12,7 +12,8 @@ typedef struct {
     int spd;
     moves moves[4];
     types type[2];
-    //abilities ability;
+    abilities ability;
+    effects effect;
     int index;
 } monster;
 

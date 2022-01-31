@@ -1,0 +1,3 @@
+- [ ] Define abilities struct
+- [ ] Give moves abilities
+- [ ] Clean up Code

@@ -1,9 +1,14 @@
 #ifndef ABILITIES_H
 #define ABILITIES_H
 
-// Type definition for our abilities
+#include <effects.h>
+#include <stdbool.h>
+
 typedef struct {
     char name[10];
+    bool hidden;
+    effects effect;
+    bool powerUp;
 } abilities;
 
 #endif
